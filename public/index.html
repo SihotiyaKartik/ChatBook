@@ -17,9 +17,10 @@
             <input type="checkbox" id="checkbox" />
             <div class="slider round"></div>
       </label>
-      <h2>Enable <span>Dark</span> Mode!</h2>
+      <h2>Enable <span id='change-txt'>Dark</span> Mode!</h2>
     </div>
     </header>
+    <hr>
     <!-- contains label,buttons of our form-->
     <main class='main'>
       <form action='chat.html'>
@@ -51,5 +52,21 @@
     </main>
 
   </div>
+  <script>
+    const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const chng = document.getElementById('change-txt');
+    function switchTheme(e) {
+        if(e.target.checked){
+          document.documentElement.setAttribute('data-theme','dark');
+          chng.innerText = 'Light';
+        }
+        else{
+          document.documentElement.setAttribute('data-theme','light');
+          chng.innerText = 'Dark';  
+        }
+
+    }
+    toggleswitch.addEventListener('change',switchTheme,false);
+  </script>
 </body>
 </html>
