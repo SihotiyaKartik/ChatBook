@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Application</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class='container'>
+    <!-- contains top part of our form-->
+    <header class='head'>
+      <h1 class='chat-txt'>Let's Chat</h1>
+      <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+      </label>
+      <h2>Enable <span>Dark</span> Mode!</h2>
+    </div>
+    </header>
+    <!-- contains label,buttons of our form-->
+    <main class='main'>
+      <form action='chat.html'>
+        <div class='lbl'>
+            <label for='username'>Username</label>
+            <input 
+              type='text'
+              name='username'
+              id='username'
+              autocomplete="off"
+              placeholder="Enter your username"
+              required />
+        </div>
+        <div class='lbl'>
+            <label for='room'>Room Id</label>
+            <input 
+              type='text'
+              name='room'
+              id='room'
+              required
+              autocomplete="off"
+              placeholder="Enter room id" />  
+        </div>
+        <div class='btn-group'>
+        <button type='submit' class='btn'>Join Room</button>
+        <button type='submit' class='btn'>Create Room</button>
+        </div>
+      </form>
+    </main>
+
+  </div>
+</body>
+</html>
