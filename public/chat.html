@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application</title>
+    <link href='/style.css' rel='stylesheet'> 
+</head>
+<body>
+    <div class='chat-contain'>
+        <header class='chat-head'>
+            <h1>Lets Chat</h1>
+            <div class='head-end'>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="checkbox">
+                        <input type="checkbox" id="checkbox" />
+                        <div class="slider round"></div>
+                    </label>
+                    <h2>Enable <span id='change-txt'>Dark</span> Mode!</h2>
+                </div>
+                <a id='leave-btn' class='chat-btn'>Leave Room</a>
+            </div>
+        </header>
+        <main class='chat-main'>
+            <div class='main-side'>
+                <h3>Room Id</h3>
+                <h2 id='room-id'></h2>
+                <h3>Users List</h3>
+                <ul id='user-list'>
+
+                </ul>
+            </div>
+            <div class='main-msg'>
+
+            </div>
+        </main>
+        <div class='txt-send'>
+            <form>
+                <input
+                    id='msg'
+                    required
+                    autocomplete="off"
+                    placeholder="Enter your message here"
+                    type='text'
+                />
+                <button class='send-btn'>Send</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
+    const chng = document.getElementById('change-txt');
+    function switchTheme(e) {
+        if(e.target.checked){
+          document.documentElement.setAttribute('data-theme','dark');
+          chng.innerText = 'Light';
+        }
+        else{
+          document.documentElement.setAttribute('data-theme','light');
+          chng.innerText = 'Dark';  
+        }
+
+    }
+    toggleswitch.addEventListener('change',switchTheme,false);
+</script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/main.js"></script>
+</html>
