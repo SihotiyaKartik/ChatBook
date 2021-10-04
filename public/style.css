@@ -117,11 +117,11 @@ hr{
     border-bottom-right-radius: 20px;
 }
 
-.main .lbl{
+.main .form-control{
     margin-bottom:20px;
 }
 
-.main .lbl label{
+.main .form-control label{
     display: block;
     font-size:20px;
     margin-bottom:5px;
@@ -129,7 +129,7 @@ hr{
     color:var(--txt-color);
 }
 
-.main input[type='text']{
+.main input[type="text"]{
     width: 100%;
     height:45px;
     font-size:16px;
@@ -143,7 +143,7 @@ hr{
     
 }
 
-.btn
+.btn-join,.btn-create
 {   
     font-weight: 600;
     font-size: 15px;
@@ -152,7 +152,7 @@ hr{
     height:35px;
 }
 
-.chat-contain{
+.chat-container{
     max-width:1200px;
     margin:25px auto;
 }
@@ -174,8 +174,12 @@ hr{
     width:400px;
 }
 
-.chat-btn{
+.btn-leave{
     right:0;
+    cursor:pointer;
+    background-color: hotpink;
+    padding: 5px;
+    border:0;
 }
 
 .chat-main{
@@ -183,26 +187,55 @@ hr{
     grid-template-columns: 1fr 3fr;
 }
 
-.main-side{
+.chat-left-side{
     background-color:lightblue;
     overflow-y: scroll;
     padding:20px 20px 60px;
 }
 
-.main-side h2,h3{
+.chat-left-side h2,h3{
     margin-bottom: 10px;
 }
 
-.main-side ul li{
+.chat-left-side ul li{
     padding:10px 0px;
 }
 
-.main-msg{
+.chat-right-side{
     height:550px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     padding: 30px;
     background-color: lightseagreen;
 }
+
+.chat-right-side .complete-msg{
+    padding:5px;
+    margin-bottom:10px;
+    background-color: lavender;
+    border-radius:5px;
+    overflow-wrap: break-word;
+}
+
+.chat-right-side .complete-msg .meta{
+    font-size: 15px;
+    color:black;
+    margin-bottom: 5px;
+}
+
+.chat-right-side .small-msg{
+    max-width:200px;
+    margin:0px auto;
+    margin-bottom:10px;
+    border-radius:5px;
+    background-color: white;
+    text-align: center;
+}
+
+.chat-right-side .small-msg .aplha{
+    color:black;
+    font-size: 15px;
+    margin-bottom: 5px;
+    }
 
 .txt-send{
     padding:30px 40px;
@@ -213,8 +246,12 @@ hr{
     display: flex;
 }
 
-.txt-send form input[type='text']{
+.txt-send form input[type="text"]{
     height:40px;
     padding:5px;
     flex:1;
+}
+
+.l-user-text{
+    display: flex;
 }

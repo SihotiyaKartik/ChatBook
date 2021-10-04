@@ -22,37 +22,51 @@
     </header>
     <hr>
     <!-- contains label,buttons of our form-->
-    <main class='main'>
-      <form action='chat.html'>
-        <div class='lbl'>
-            <label for='username'>Username</label>
+    <main class="main">
+      <form name="FORM" id="index-form" action="/chat.html">
+        <div class="form-control">
+            <div class='l-user-text'><label for="username">Username</label><p id="username-text"></p></div>
             <input 
-              type='text'
-              name='username'
-              id='username'
+              type="text"
+              name="username"
+              id="username"
+              required
               autocomplete="off"
               placeholder="Enter your username"
-              required />
+              />
         </div>
-        <div class='lbl'>
-            <label for='room'>Room Id</label>
+        <div class="form-control">
+            <label for="room">Room Id</label>
             <input 
-              type='text'
-              name='room'
-              id='room'
+              type="text"
+              name="room"
+              id="room"
               required
               autocomplete="off"
               placeholder="Enter room id" />  
         </div>
-        <div class='btn-group'>
-        <button type='submit' class='btn'>Join Room</button>
-        <button type='submit' class='btn'>Create Room</button>
+        <div class="btn-group">
+          <button class="btn-join">Join Room</button>
+        
         </div>
       </form>
     </main>
 
   </div>
   <script>
+    const form = document.getElementById("index-form");
+    const error = document.getElementById("username-text");
+    const temp = /^[a-zA-Z]+$/;
+    form.addEventListener('submit',(e)=>{
+          if(!username.value.match(temp)){
+            e.preventDefault();
+            error.innerHTML = "not valid";
+          }
+
+    })
+    
+    
+    
     const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
     const chng = document.getElementById('change-txt');
     function switchTheme(e) {

@@ -5,46 +5,45 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Application</title>
-    <link href='/style.css' rel='stylesheet'> 
+    <link rel="stylesheet" href="/style.css" /> 
 </head>
 <body>
-    <div class='chat-contain'>
-        <header class='chat-head'>
+    <div class="chat-container">
+        <header class="chat-head">
             <h1>Lets Chat</h1>
-            <div class='head-end'>
+            <div class="head-end">
                 <div class="theme-switch-wrapper">
                     <label class="theme-switch" for="checkbox">
                         <input type="checkbox" id="checkbox" />
                         <div class="slider round"></div>
                     </label>
-                    <h2>Enable <span id='change-txt'>Dark</span> Mode!</h2>
+                    <h2>Enable <span id="change-txt">Dark</span> Mode!</h2>
                 </div>
-                <a id='leave-btn' class='chat-btn'>Leave Room</a>
+                <a id="leave-btn" class="btn-leave">Leave Room</a>
             </div>
         </header>
-        <main class='chat-main'>
-            <div class='main-side'>
-                <h3>Room Id</h3>
-                <h2 id='room-id'></h2>
-                <h3>Users List</h3>
-                <ul id='user-list'>
-
-                </ul>
+        <main class="chat-main">
+            <div class="chat-left-side">
+                <h3>Room Id: </h3>
+                <h2 id="room-id"></h2>
+                <h3>Users</h3>
+                <ul id="users-list"></ul>
             </div>
-            <div class='main-msg'>
+            <div class="chat-right-side">
 
             </div>
         </main>
-        <div class='txt-send'>
-            <form>
+        <div class="txt-send">
+            <form id="chat-form">
                 <input
-                    id='msg'
+                    id="msg"
                     required
                     autocomplete="off"
                     placeholder="Enter your message here"
-                    type='text'
+                    type="text"
+                    
                 />
-                <button class='send-btn'>Send</button>
+                <button class="btn-send">Send</button>
             </form>
         </div>
     </div>
@@ -65,6 +64,7 @@
     }
     toggleswitch.addEventListener('change',switchTheme,false);
 </script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" crossorigin="anonymous"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/main.js"></script>
 </html>
