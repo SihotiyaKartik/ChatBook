@@ -4,67 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Application</title>
-    <link rel="stylesheet" href="/style.css" /> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Document</title>
+
 </head>
 <body>
-    <div class="chat-container">
-        <header class="chat-head">
-            <h1>Lets Chat</h1>
-            <div class="head-end">
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
-                    <h2>Enable <span id="change-txt">Dark</span> Mode!</h2>
+    <div class="new-contain">
+        <main class="new-main">
+            <div class="left">
+                <div class="current-user">
+                    <img src="user.png" height='40' width='40' alt='soon'>
+                    <p class="left-user-name"></p>
                 </div>
-                <a id="leave-btn" class="btn-leave">Leave Room</a>
+                
+                <!-- For occupation of person-->
+                <span></span>
+                <!-- -->
+                <div class="search">
+                <i class="fas fa-search" aria-hidden="true"></i>
+                <input 
+                    type="text"
+                    placeholder="This feature will be added soon"
+                    autocomplete="off" />
+                </div>
+                <div class="new-users-list">
+                     
+                </div>     
             </div>
-        </header>
-        <main class="chat-main">
-            <div class="chat-left-side">
-                <h3>Room Id: </h3>
-                <h2 id="room-id"></h2>
-                <h3>Users</h3>
-                <ul id="users-list"></ul>
-            </div>
-            <div class="chat-right-side">
-
+            <div class="right">
+                    <header>
+                        <div class="new-room-id">
+                            <img src="group.png" height='50' width='50'>
+                            <p id="room-id" class="room-id"></p>
+                        </div>
+                        <div class="switch-toggle">
+                            <div class="main-switch"> 
+                            <label id="switch" class="switch">
+                                <input type="checkbox" onchange="toggleTheme()" id="slide">
+                                <span class="slide Round"></span>
+                            </label>
+                            </div>
+                            <a id='leave-btn'><i class="fas fa-times-circle"></i></a>
+                            <div class="toggle">
+                                <i class="fas fa-align-justify"></i>
+                            </div>
+                        </div>
+                    </header>
+                    <hr class="new-hr">
+                    <div id="MainMessage">
+                        
+                    </div>
+                    <hr class="n-hr">
+                    <div class="send">
+                    <form id="send-form" class="send-form">
+                        <input id="msg" type="text" placeholder="Write something" autocomplete="off">
+                        <i class="fas fa-smile"></i>
+                        <button class="new-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
             </div>
         </main>
-        <div class="txt-send">
-            <form id="chat-form">
-                <input
-                    id="msg"
-                    required
-                    autocomplete="off"
-                    placeholder="Enter your message here"
-                    type="text"
-                    
-                />
-                <button class="btn-send">Send</button>
-            </form>
-        </div>
+
+
+
     </div>
 </body>
-<script>
-    const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    const chng = document.getElementById('change-txt');
-    function switchTheme(e) {
-        if(e.target.checked){
-          document.documentElement.setAttribute('data-theme','dark');
-          chng.innerText = 'Light';
-        }
-        else{
-          document.documentElement.setAttribute('data-theme','light');
-          chng.innerText = 'Dark';  
-        }
-
-    }
-    toggleswitch.addEventListener('change',switchTheme,false);
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="/main.js"></script>
+<script src="/chat.js"></script> 
 </html>

@@ -30,6 +30,8 @@
               type="text"
               name="username"
               id="username"
+              minlength="1"
+              maxlength="15"
               required
               autocomplete="off"
               placeholder="Enter your username"
@@ -42,6 +44,7 @@
               name="room"
               id="room"
               required
+              minlength="4"
               autocomplete="off"
               placeholder="Enter room id" />  
         </div>
@@ -53,34 +56,26 @@
     </main>
 
   </div>
-  <script>
-    const form = document.getElementById("index-form");
-    const error = document.getElementById("username-text");
-    const temp = /^[a-zA-Z]+$/;
-    form.addEventListener('submit',(e)=>{
-          if(!username.value.match(temp)){
-            e.preventDefault();
-            error.innerHTML = "not valid";
-          }
-
-    })
-    
-    
-    
-    const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
-    const chng = document.getElementById('change-txt');
-    function switchTheme(e) {
-        if(e.target.checked){
-          document.documentElement.setAttribute('data-theme','dark');
-          chng.innerText = 'Light';
-        }
-        else{
-          document.documentElement.setAttribute('data-theme','light');
-          chng.innerText = 'Dark';  
-        }
-
-    }
-    toggleswitch.addEventListener('change',switchTheme,false);
-  </script>
+  
 </body>
+<script>
+  const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  const chng = document.getElementById('change-txt');
+  function switchTheme(e) {
+      if(e.target.checked){
+        document.documentElement.setAttribute('data-theme','dark');
+        chng.innerText = 'Light';
+      }
+      else{
+        document.documentElement.setAttribute('data-theme','light');
+        chng.innerText = 'Dark';  
+      }
+
+  }
+  toggleswitch.addEventListener('change',switchTheme,false);
+</script>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/main.js"></script>
 </html>

@@ -10,7 +10,6 @@ function formatMessage(username,text){
 }
 function formatJoin(text){
     return{
-        
         text
     };
 }

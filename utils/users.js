@@ -1,9 +1,12 @@
 const users = [];
 
-function userJoin(username,room,id){
-    const user = {username,room,id}
+
+function userJoin(username,room,time,flag,id){
+    const user = {username,room,time,flag,id}
     users.push(user);
+
     return user;
+    
 }
 
 function getCurrentUser(id){
@@ -27,3 +30,4 @@ module.exports = {
     getRoomUsers,
     userLeave
 };
+
