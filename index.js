@@ -11,8 +11,8 @@ const{
         getRoomUsers
     } = require('./utils/users')
 
-
-const server = app.listen("https://kartik-real-time-chat-app.herokuapp.com/",()=>{
+var port = process.env.PORT || 3000;    
+const server = app.listen(port,()=>{
         console.log('server is running on port 3000');
 });
 
