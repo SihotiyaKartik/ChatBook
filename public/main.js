@@ -12,7 +12,9 @@ const emoji6 = document.getElementById("emoji6");
 const sendMessage = document.getElementById("msg");
 const userName = document.querySelector(".left-user-name");
 const leave = document.getElementById("leave-btn");
-
+const toggle = document.getElementById("toggle-nav");
+const LEFT = document.querySelector(".left");
+const RIGHT = document.querySelector(".right");
 
 const socket = io();
 
@@ -182,6 +184,17 @@ function outputEmoji(message){
 
 
 }
+
+toggle.addEventListener('click',() => {
+    if(LEFT.style.visibility === 'hidden'){
+        RIGHT.style.visibility = 'hidden';
+        LEFT.style.visibility = 'visible';
+    }
+    else{
+        RIGHT.style.visibility = 'visible';
+        LEFT.style.visibility = 'hidden';
+    }
+})
 
 
 emoji.addEventListener('click',() => {
