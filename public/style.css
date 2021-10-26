@@ -20,13 +20,14 @@
 
 body{
     font-size:16px;
-    background-color:lightblue;
+    background-color:#ddecfc;
     
 }
 
 .container{
     max-width: 600px;
-    margin:100px auto;
+    margin:calc((100vh - 600px)/2) auto;
+    box-shadow: 0 8px 15px 0px rgba(0,0,0,0.2);
 }
 
 hr{
@@ -36,85 +37,36 @@ hr{
 
 .head{
     display: flex;
+    justify-content:flex-start;
     padding:20px;
-    background-color:var(--head-color);
+    background-color:rgb(240, 240, 240);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
+    align-items: center;
     
 }
 
 .chat-txt{
-    width: 300px;
+    width:280px;
     color:var(--txt-color);
-}
-
-.theme-switch-wrapper{
     display: flex;
-    width:300px;
     justify-content: flex-end;
-    align-items: center;
 }
 
-.theme-switch-wrapper h2{
-    color:var(--txt-color);
-    margin-left:10px;
-    font-size:1rem;
-}
-
-.theme-switch{
-    display:inline-block;
-    height:34px;
-    position: relative;
-    width:60px;
-}
-
-.theme-switch input{
-    display: none;
-}
-
-.slider {
-    background-color: #ccc;
-    bottom: 0;
-    cursor: pointer;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    background-color: #fff;
-    bottom: 4px;
-    content: "";
-    height: 26px;
-    left: 4px;
-    position: absolute;
-    transition: .4s;
-    width: 26px;
-  }
-
-  input:checked + .slider {
-    background-color: #66bb6a;
-  }
-  
-  input:checked + .slider:before {
-    transform: translateX(26px);
-  }
-  
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
 
 .main{
     padding:30px 40px;
+    padding-top: 10px !important;
     background-color: var(--main-color); 
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    background-color: rgb(240, 240, 240);
+}
+
+#index-form{
+    background-color: white;
+    padding:20px;
+    border-radius: 15px;
 }
 
 .main .form-control{
@@ -123,18 +75,22 @@ hr{
 
 .main .form-control label{
     display: block;
-    font-size:20px;
+    font-size:30px;
     margin-bottom:5px;
-    font-weight: 600;
+    
     color:var(--txt-color);
 }
 
 .main input[type="text"]{
     width: 100%;
     height:45px;
-    font-size:16px;
-    border:2px solid green;
-    padding:5px;
+    font-size:20px;
+    border:3px solid #ddecfc;
+    padding:10px;
+}
+
+.main input[type="text"]:focus{
+    outline: none;
 }
 
 .btn-group{
@@ -145,11 +101,13 @@ hr{
 
 .btn-join,.btn-create
 {   
-    font-weight: 600;
-    font-size: 15px;
+    cursor: pointer;
+    font-size: 20px;
     margin-top:15px;
     width:200px;
-    height:35px;
+    height:50px;
+    border:1px solid #ddecfc;
+    background-color: #ddecfc;
 }
 
 .l-user-text{
@@ -174,7 +132,7 @@ hr{
    border-top-left-radius: 15px;
    border-bottom-left-radius: 15px;
    overflow-y: scroll;
-   max-height:650px;
+   height:750px;
 
 }
 
@@ -278,8 +236,7 @@ border:1px solid black;
    padding:30px;
    border-top-right-radius: 15px;
    border-bottom-right-radius: 15px;
-   
-   max-height:650px;
+    height:750px;
 
 }
 
@@ -315,20 +272,20 @@ border:1px solid black;
     
 }
 
-.right header .switch-toggle .main-switch .switch{
+.main-switch .switch{
     position: relative;
     display: inline-block;
     width:50px;
     height:28px;
 }
 
-.right header .switch-toggle .main-switch .switch input{
+.main-switch .switch input{
     opacity: 0;
     width:0;
     height:0;
 }
 
-.right header .switch-toggle .main-switch .slide{
+.main-switch .slide{
    position: absolute;
   cursor: pointer;
   top: 0;
@@ -340,7 +297,7 @@ border:1px solid black;
   transition: 0.4s;
 }
 
-.right header .switch-toggle .main-switch .slide:before{
+.main-switch .slide:before{
   position: absolute;
   content: "";
   height: 35px;
@@ -358,15 +315,15 @@ border:1px solid black;
   background-position: center;
 }
 
-.right header .switch-toggle .main-switch .switch input:checked + .slide{
+.main-switch .switch input:checked + .slide{
     background-color: #2196f3;
 }
 
-.right header .switch-toggle .main-switch .switch input:focus + .slide{
+.main-switch .switch input:focus + .slide{
     box-shadow: 0 0 1px #2196f3;
 }
 
-.right header .switch-toggle .main-switch .switch input:checked + .slide:before{
+.main-switch .switch input:checked + .slide:before{
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
@@ -397,7 +354,7 @@ border:1px solid black;
 }
 
 #MainMessage{
-    height:480px;
+    height:580px;
     overflow-y: scroll;
 }
 
@@ -425,6 +382,7 @@ border:1px solid black;
     width:95%;
     height:40px;
     padding:20px;
+    font-size: 18px;
     padding-right:100px;
     border-radius: 20px;
     border:1px solid rgba(0,0,0);
@@ -433,28 +391,29 @@ border:1px solid black;
 
   .fa-smile{
       align-self: center;
-      font-size:25px;
+      font-size:30px;
       position: absolute;
-      right:19%;
-      color: rgb(19, 118, 231);
+      right:calc((100vw - 950px)/2);
+      color: rgb(74, 83, 2);
       background-color: white;
+      cursor: pointer;
   }
 
   .new-btn{
     position: absolute;
-    right:15%;
+    right:calc((100vw - 1080px)/2);
     border-radius: 50%;
-    height:45px;
+    height:50px;
     align-self: center;
     cursor: pointer;
-    width:45px;
+    width:50px;
     background-color: rgb(19,118,231);
     border:1px solid rgb(19,118,231);
   }
 
   .fa-paper-plane{
       color:white;
-      font-size:20px;
+      font-size:18px;
       cursor: pointer;
   }
 
@@ -472,11 +431,12 @@ border:1px solid black;
       padding:5px;
       border-radius: 20px;
       background-color: rgb(192, 250, 250);
+      font-size: 20px;
   }
 
   .greet-msg .aplha{
       color:black;
-      font-size: 15px;
+      font-size: 20px;
       margin-bottom: 5px;
   }
 
@@ -492,8 +452,30 @@ border:1px solid black;
       
   }
 
+  .emoji-msg{
+      padding:5px;
+      margin-top:10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      overflow-wrap: break-word;
+      background-color: rgb(220,248,198);
+      width:60%;
+      margin-right:10px;
+
+  }
+
+  .emoji-msg .fa-grin-squint-tears,.fa-kiss-wink-heart,.fa-surprise,.fa-sad-tear,.fa-laugh-squint{
+      color: rgb(100, 100, 1);
+      font-size: 25px;
+  } 
+
+  .emoji-msg .fa-angry{
+      color: red;
+      font-size: 25px;
+  }
+
   .personal .p-text{
-      color:black;
+
       font-size:15px;
   }
 
@@ -521,11 +503,145 @@ border:1px solid black;
       right:0;
   }
 
+  #username-text{
+      align-self: center;
+      margin-left: 10px;
+      color: red;
+      font-size: 20px;
+  }
 
-  @media only screen and (max-width:600px){
+  .p-text-name{
+      color:red !important;
+      font-size: 22px !important;
+  }
 
+  .p-text-text{
+      color:black !important;
+      font-size: 18px !important;
+  }
+
+  .reaction{
+      display: flex;
+    position: absolute;
+    bottom:125px;
+    z-index: 10;
+    visibility: hidden;
+    right:calc((100vw - 1170px)/2);
+    width:250px;
+    background-color: rgb(90, 88, 88);
+    justify-content: space-between;
+    padding:10px;
+    border-radius: 20px;
+  }
+  .reaction > .far{
+      font-size: 25px;
+      color:yellow;
+  }
+
+  .reaction > .fas{
+      font-size: 25px;
+      color: yellow;
+  }
+  
+  .fa-align-justify{
+      visibility: hidden;
+  }
+
+  @media only screen and (max-width:500px){
+
+    .container{
+        max-width: 450px;
+        margin-top:100px;
+        box-shadow: 0 8px 15px 0px rgba(0,0,0,0.2);
+    }
+
+    .fa-align-justify{
+        visibility: visible;
+    }
+
+    .new-main{
+        height:100vh;
+        width:100vw;
+    }
+
+    .left{
+        visibility: hidden;
+    }
+
+    .right{
+        width:100%;
+        position: fixed;
+        left:0;
+        top:0;
+    }
+
+    #MainMessage{
+        height:500px;
+        overflow-y: scroll;
+    }
+
+    .send .send-form{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        z-index: 10;
+        position: fixed;
+        bottom:15px;
+        width:90%;
+        
+    }
+    .send input[type="text"]{
+      width:95%;
+      height:40px;
+      padding:20px;
+      font-size: 18px;
+      padding-right:100px;
+      border-radius: 20px;
+      border:1px solid rgba(0,0,0);
+      background-color:rgb(245,245,245);
+    }
+  
+    .fa-smile{
+        align-self: center;
+        font-size:30px;
+        position: fixed;
+        bottom: 20px;
+        right:16%;
+        color: rgb(74, 83, 2);
+        
+        cursor: pointer;
+    }
+  
     .new-btn{
-        right:7%;
+      position: fixed;
+      right:5%;
+      border-radius: 50%;
+      height:45px;
+      align-self: center;
+      cursor: pointer;
+      width:45px;
+      background-color: rgb(19,118,231);
+      border:1px solid rgb(19,118,231);
+    }
+  
+    .fa-paper-plane{
+        color:white;
+        font-size:18px;
+        cursor: pointer;
+    }
+
+    .reaction{
+      display: flex;
+      position: fixed;
+      bottom:60px;
+      z-index: 100;
+      visibility: hidden;
+      right:2%;
+      width:200px;
+      background-color: rgb(90, 88, 88);
+      justify-content: space-between;
+      padding:10px;
+      border-radius: 20px;
     }
 
   }

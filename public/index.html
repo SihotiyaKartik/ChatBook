@@ -4,26 +4,20 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chat Application</title>
+  <title>ChatBook</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <div class='container'>
     <!-- contains top part of our form-->
     <header class='head'>
-      <h1 class='chat-txt'>Let's Chat</h1>
-      <div class="theme-switch-wrapper">
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-      </label>
-      <h2>Enable <span id='change-txt'>Dark</span> Mode!</h2>
-    </div>
+      <h1 class='chat-txt'>ChatBook</h1>
+      <img src="chat.jpg" height="50" width="50">
     </header>
-    <hr>
+    
     <!-- contains label,buttons of our form-->
     <main class="main">
-      <form name="FORM" id="index-form" action="/chat.html">
+      <form id="index-form" action="/chat.html">
         <div class="form-control">
             <div class='l-user-text'><label for="username">Username</label><p id="username-text"></p></div>
             <input 
@@ -59,23 +53,22 @@
   
 </body>
 <script>
-  const toggleswitch = document.querySelector('.theme-switch input[type="checkbox"]');
-  const chng = document.getElementById('change-txt');
-  function switchTheme(e) {
-      if(e.target.checked){
-        document.documentElement.setAttribute('data-theme','dark');
-        chng.innerText = 'Light';
-      }
-      else{
-        document.documentElement.setAttribute('data-theme','light');
-        chng.innerText = 'Dark';  
-      }
+const form = document.getElementById("index-form");
+const error = document.getElementById("username-text");
+const temp = /^[a-zA-Z]+$/;
+ 
 
-  }
-  toggleswitch.addEventListener('change',switchTheme,false);
+form.addEventListener('submit',(e)=>{
+    
+    const nameOfuser = e.target.elements.username.value;
+    const roomName = e.target.elements.room.value;
+    console.log({nameOfuser,roomName});
+    
+    if(!nameOfuser.match(temp)){
+        e.preventDefault();
+        error.innerText = "Username is not valid";
+    }
+    
+});
 </script>
-
-
-<script src="/socket.io/socket.io.js"></script>
-<script src="/main.js"></script>
 </html>

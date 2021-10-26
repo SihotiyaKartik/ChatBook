@@ -49,6 +49,11 @@ io.on('connection',socket=>{
         
     });
 
+    socket.on('emoji',sentEmoji => {
+        const user = getCurrentUser(socket.id);
+        io.to(user.room).emit('emojiMsg',formatMessage(user.username,sentEmoji));
+    });
+
     //when user disconnects
     socket.on('disconnect',()=>{
         const user = userLeave(socket.id);

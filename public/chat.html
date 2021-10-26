@@ -59,7 +59,15 @@
                     <div class="send">
                     <form id="send-form" class="send-form">
                         <input id="msg" type="text" placeholder="Write something" autocomplete="off">
-                        <i class="fas fa-smile"></i>
+                        <div class="reaction">
+                            <i id="emoji1" class="far fa-grin-squint-tears"></i>
+                            <i id="emoji2" class="far fa-laugh-squint"></i>
+                            <i id="emoji3" class="fas fa-angry"></i>
+                            <i id="emoji4" class="far fa-sad-tear"></i>
+                            <i id="emoji5" class="far fa-kiss-wink-heart"></i>
+                            <i id="emoji6" class="far fa-surprise"></i>
+                        </div>
+                        <i class="fas fa-smile" id="emoji"></i>
                         <button class="new-btn"><i class="fas fa-paper-plane"></i></button>
                     </form>
                 </div>
@@ -70,7 +78,8 @@
 
     </div>
 </body>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js" integrity="sha512-aTKlYRb1QfU1jlF3k+aS4AqTpnTXci4R79mkdie/bp6Xm51O5O3ESAYhvg6zoicj/PD6VYY0XrYwsWLcvGiKZQ==" crossorigin="anonymous"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="/chat.js"></script> 
+<script src="/main.js"></script> 
 </html>
